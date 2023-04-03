@@ -1,7 +1,7 @@
 // require("dotenv").config();
 const server = require("./src/app.js");
 const { conn } = require("./src/db.js");
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || "https://back-endgamingfdeploy-production.up.railway.app/";
 const axios = require("axios");
 
 

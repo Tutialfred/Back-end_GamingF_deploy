@@ -142,8 +142,8 @@ router.post("/payment", (req, res) => {
       };
     }),
     back_urls: {
-      success: "http://localhost:3000/confirmation/approve",
-      failure: "http://localhost:3000/home",
+      success: "https://back-endgamingfdeploy-production.up.railway.app/confirmation/approve",
+      failure: "https://back-endgamingfdeploy-production.up.railway.app/home",
       pending: "",
     },
     // "notification_url": "http://localhost:3000/products/notificacion",
