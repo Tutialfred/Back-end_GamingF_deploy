@@ -2,7 +2,7 @@ require("dotenv").config();
 const { Sequelize } = require("sequelize");
 const fs = require("fs");
 const path = require("path");
-const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME, DB_PORT, DB_DEPLOY, DB_DATABASE } =
+const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME, DB_PORT, DB_DEPLOY, DB_DATABASE, BDD } =
   process.env;
 
 const sequelize = DB_DEPLOY
@@ -11,8 +11,15 @@ const sequelize = DB_DEPLOY
       native: false,
     })
   : new Sequelize(
-      `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/TheGamingFarm`,
+      // `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_DATABASE}`,
+      `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${BDD}`,
       {
+        dialectOptions : {
+          ssl: {
+            require: true,
+            rejectUnauthorized: false,
+          },
+        },
         logging: false,
         native: false,
       }
