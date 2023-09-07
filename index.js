@@ -8,7 +8,7 @@ const axios = require("axios");
 
 
 
-// 
+
 // Syncing all the models at once.
 conn.sync({ force: false }).then(() => {
   // Creamos una variable de entorno llamada PORT (le damos valor 3001 localmente).
